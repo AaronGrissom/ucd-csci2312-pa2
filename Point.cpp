@@ -22,10 +22,38 @@ using namespace Clustering;
         for (int i = 0; i < __dim; ++i)
         __values[i] = ptr [i];
     }
+    
+// Accessors & mutators
+    int getId() const
+    {
+        
+    }
+    int getDims() const
+    {
+        
+    }
+    }
+    void setValue(int, double)
+    {
+        
+    }
+    double getValue(int) const
+    {
+        
+    }
+    }
 
 // Big three: cpy ctor, overloaded operator=, dtor
 
-
+    Point(const Point &CpydPoint)
+    {
+        
+    }
+    
+    Point &operator=(const Point &)
+    {
+        
+    }
 
     Point::~Point()
     {
