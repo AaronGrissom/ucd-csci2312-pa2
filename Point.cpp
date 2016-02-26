@@ -5,7 +5,7 @@ using namespace std;
 using namespace Clustering;
 
 // constructors
-    Point::Point(int num
+    Point::Point(int num)
     {
         __values = nullptr;
         __dim = num;
@@ -14,49 +14,38 @@ using namespace Clustering;
         for (int i = 0; i < __dim; ++i)
         __values[i]=0;
     }
-
-    Point::Point(int num, double* ptr)
-    {
-        __dim = num;
-    
-        for (int i = 0; i < __dim; ++i)
-        __values[i] = ptr [i];
-    }
     
 // Accessors & mutators
-    int getId() const
+    int Point::getId() const
     {
-        
+        return __id;
     }
-    int getDims() const
+    int Point::getDims() const
     {
-        
+        return __dim;
     }
-    }
-    void setValue(int, double)
+    void Point::setValue(int num, double val)
     {
-        
+        __values[num] = val;
     }
-    double getValue(int) const
+    double Point::getValue(int num) const
     {
-        
-    }
+        return __values[num];
     }
 
 // Big three: cpy ctor, overloaded operator=, dtor
 
-    Point(const Point &CpydPoint)
-    {
+    // Point::Point(const Point &CpydPoint)
+    // {
         
-    }
+    // }
     
-    Point &operator=(const Point &)
-    {
+    // Point::Point &operator=(const Point &)
+    // {
         
-    }
+    // }
 
     Point::~Point()
     {
         delete [] __values;
-        __values = nullptr;
     }
