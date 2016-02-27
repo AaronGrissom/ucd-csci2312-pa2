@@ -4,13 +4,15 @@
 using namespace std;
 using namespace Clustering;
 
+
 // constructors
+    unsigned int Point::__idGen = 0;
     Point::Point(int num)
     {
-        __values = nullptr;
+        __id = __idGen++;
         __dim = num;
-    
         __values = new double[__dim];
+        
         for (int i = 0; i < __dim; ++i)
         __values[i]=0;
     }
@@ -35,12 +37,17 @@ using namespace Clustering;
 
 // Big three: cpy ctor, overloaded operator=, dtor
 
-    // Point::Point(const Point &CpydPoint)
-    // {
-        
-    // }
+    Point::Point(const Point &CpydPoint)
+    {
+        __id = CpydPoint.getId();
+        __dim = CpydPoint.getDims();
+        __values = new double[__dim];
     
-    // Point::Point &operator=(const Point &)
+        for (int i = 0; i < __dim; ++i)
+        __values[i]=CpydPoint.getValue(i);
+    }
+    
+    // Point &operator=(const Point &rPoint)
     // {
         
     // }

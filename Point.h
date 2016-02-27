@@ -13,6 +13,7 @@ namespace Clustering {
         static unsigned int __idGen; // id generator
 
     public:
+        //constructors
         Point(int);
         Point(int, double *);
 
