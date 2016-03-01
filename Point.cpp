@@ -8,6 +8,7 @@ using namespace std;
 using namespace Clustering;
 
 
+
 // constructors
     unsigned int Point::__idGen = 0;
     Point::Point(int num)
@@ -52,12 +53,43 @@ using namespace Clustering;
     
     Point &Point::operator=(const Point &rPoint)
     {
+        int i = 0;
+        
         if (this != &rPoint && this->getDims() == rPoint.getDims())
         {
-            for (int i = 0; i < this->getDims(); i++)
+            for (i = 0; i < this->getDims(); i++)
             this->setValue(i,rPoint.getValue(i));
+            return *this;
         }
-        return *this;
+        else if (this != &rPoint && this->getDims() < rPoint.getDims())
+        {
+            cout << endl << "------------------------" << endl;
+            cout << "ERROR! unable to assign due to demention missmatch" << endl;
+            cout << "Point trying to copy assign:" << endl;
+                cout << "\tID: " << this->getId() << endl;
+                cout << "\tDimentions: " << this->getDims() << endl;
+                cout << "\tValues: |";
+                for (int i = 0; i < this->getDims(); i++)
+                cout << this->getValue(i) << "|";
+                cout << endl;
+            cout << "Point getting value from:" << endl;
+                cout << "\tID: " << rPoint.getId() << endl;
+                cout << "\tDimentions: " << rPoint.getDims() << endl;
+                cout << "\tValues: |";
+                for (int i = 0; i < rPoint.getDims(); i++)
+                cout << rPoint.getValue(i) << "|";
+                cout << endl;
+            cout << "------------------------" << endl;
+        return this;
+        }
+        else
+        {
+            for (i = 0; i < rPoint.getDims(); i++)
+            this->setValue(i,rPoint.getValue(i));
+            for (;i < rPoint.getDims(); i++)
+            this->setValue(i,0);
+            return *this;
+        }
     }
 
     Point::~Point()
@@ -66,14 +98,14 @@ using namespace Clustering;
     }
     
 // Functions
-
-    // double Point::distanceTo(const Point& nextPoint) const
-    // {
-    //     if (__dim > nextPoint.getDims())
-    //     {
-    //         Point temp(__dim);
-    //     }
-    // }
+    /*double Point::distanceTo(const Point& nextPoint) const
+    {
+        if (__dim > nextPoint.getDims())
+        {
+            Point(__dim);
+            
+        }
+    }*/
     
 // Overloaded opperators
 
