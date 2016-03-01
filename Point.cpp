@@ -47,10 +47,25 @@ using namespace Clustering;
         __values[i]=CpydPoint.getValue(i);
     }
     
-    // Point &operator=(const Point &rPoint)
-    // {
+    Point &Point::operator=(const Point &rPoint)
+    {
+        Point lPoint(rPoint.getDims());
+        lPoint.__id = rPoint.getId();
+        lPoint.__values = new double[lPoint.__dim];
+    
+        for (int i = 0; i < lPoint.__dim; ++i)
+        lPoint.__values[i]=rPoint.getValue(i);
         
-    // }
+        cout << "Point L:" << endl;
+        cout << "\tID: " << lPoint.getId() << endl;
+        cout << "\tDimentions: " << lPoint.getDims() << endl;
+        cout << "\tValues: |";
+        for (int i = 0; i < 5; i++)
+            cout << lPoint.getValue(i) << "|";
+        cout << endl;
+        
+        return lPoint;
+    }
 
     Point::~Point()
     {
