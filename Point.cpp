@@ -1,7 +1,10 @@
-# include "Point.h"
+# include <cmath>
 # include <iostream>
 
 using namespace std;
+
+# include "Point.h"
+
 using namespace Clustering;
 
 
@@ -61,3 +64,49 @@ using namespace Clustering;
     {
         delete [] __values;
     }
+    
+// Functions
+
+    // double Point::distanceTo(const Point& nextPoint) const
+    // {
+    //     if (__dim > nextPoint.getDims())
+    //     {
+    //         Point temp(__dim);
+    //     }
+    // }
+    
+// Overloaded opperators
+
+// Members
+    // Point &operator*=(double); // p *= 6; p.operator*=(6);
+    // Point &operator/=(double);
+    // const Point operator*(double) const; // prevent (p1 * 2) = p2;
+    // const Point operator/(double) const; // p3 = p2 / 2;
+
+    // double &operator[](int index);
+
+// Friends
+    // friend Point &operator+=(Point &, const Point &);
+    // friend Point &operator-=(Point &, const Point &);
+    // friend const Point operator+(const Point &, const Point &);
+    // friend const Point operator-(const Point &, const Point &);
+
+    // friend bool operator==(const Point &, const Point &);
+    // friend bool operator!=(const Point &, const Point &);
+
+    // friend bool operator<(const Point &, const Point &);
+    // friend bool operator>(const Point &, const Point &);
+    // friend bool operator<=(const Point &, const Point &);
+    // friend bool operator>=(const Point &, const Point &);
+
+    // friend std::ostream &operator<<(std::ostream &, const Point &);
+    // friend std::istream &operator>>(std::istream &, Point &);
+
+    
+    
+    
+    
+    
+    
+    
+    
