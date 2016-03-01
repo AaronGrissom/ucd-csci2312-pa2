@@ -7,8 +7,6 @@ using namespace std;
 
 using namespace Clustering;
 
-
-
 // constructors
     unsigned int Point::__idGen = 0;
     Point::Point(int num)
@@ -80,7 +78,7 @@ using namespace Clustering;
                 cout << rPoint.getValue(i) << "|";
                 cout << endl;
             cout << "------------------------" << endl;
-        return this;
+        return *this;
         }
         else
         {
