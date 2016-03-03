@@ -4,7 +4,7 @@
 using namespace std;
 using namespace Clustering;
 
-
+/*
     Cluster::Cluster()
     {
         
@@ -111,3 +111,4 @@ using namespace Clustering;
     {
         
     }
+*/

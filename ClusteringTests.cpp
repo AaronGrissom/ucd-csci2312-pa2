@@ -79,6 +79,7 @@ void test_point_smoketest(ErrorContext &ec) {
     ec.result(pass);
 }
 
+/*
 // id
 void test_point_id(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
@@ -120,6 +121,7 @@ void test_point_id(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
+
 
 // setValue, getValue, operator[]
 void test_point_getsetelem(ErrorContext &ec, unsigned int numRuns) {
@@ -1578,3 +1580,4 @@ void test_cluster_IO(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
+*/
