@@ -19,24 +19,6 @@ using namespace Clustering;
         __values[i]=0;
     }
     
-// Accessors & mutators
-    int Point::getId() const
-    {
-        return __id;
-    }
-    int Point::getDims() const
-    {
-        return __dim;
-    }
-    void Point::setValue(int num, double val)
-    {
-        __values[num] = val;
-    }
-    double Point::getValue(int num) const
-    {
-        return __values[num];
-    }
-
 // Big three: cpy ctor, overloaded operator=, dtor
 
     Point::Point(const Point &CpydPoint)
@@ -95,80 +77,100 @@ using namespace Clustering;
         delete [] __values;
     }
     
-// // Functions
-//     double Point::distanceTo(const Point& nextPoint) const
-//     {
+// Accessors & mutators
+    int Point::getId() const
+    {
+        return __id;
+    }
+    int Point::getDims() const
+    {
+        return __dim;
+    }
+    void Point::setValue(int num, double val)
+    {
+        __values[num] = val;
+    }
+    double Point::getValue(int num) const
+    {
+        return __values[num];
+    }
 
-//     }
+/*
+
+// Functions
+    double Point::distanceTo(const Point& nextPoint) const
+    {
+
+    }
     
-// // Overloaded opperators
+// Overloaded opperators
 
-// // Members
-//     Point &operator*=(double x) // p *= 6; p.operator*=(6);
-//     {
+// Members
+    Point &operator*=(double x) // p *= 6; p.operator*=(6);
+    {
         
-//     }
-//     Point &operator/=(double x)
-//     {
+    }
+    Point &operator/=(double x)
+    {
         
-//     }
-//     const Point Point::operator*(double x) const // prevent (p1 * 2) = p2;
-//     {
+    }
+    const Point Point::operator*(double x) const // prevent (p1 * 2) = p2;
+    {
         
-//     }
-//     const Point Point::operator/(double x) const // p3 = p2 / 2;
-//     {
+    }
+    const Point Point::operator/(double x) const // p3 = p2 / 2;
+    {
         
-//     }
+    }
 
-//     double &operator[](int index)
-//     {
+    double &operator[](int index)
+    {
         
-//     }
+    }
 
-// // Friends
-//     Point &operator+=(Point & x, const Point & y)
-//     {
+// Friends
+    Point &operator+=(Point & x, const Point & y)
+    {
         
-//     }
-//     Point &operator-=(Point & x, const Point & y)
-//     {
+    }
+    Point &operator-=(Point & x, const Point & y)
+    {
         
-//     }
-//     const Point Point::operator+(const Point & x, const Point &y)
-//     {
+    }
+    const Point Point::operator+(const Point & x, const Point &y)
+    {
         
-//     }
-//     const Point Point::operator-(const Point &x, const Point &y)
-//     {
+    }
+    const Point Point::operator-(const Point &x, const Point &y)
+    {
         
-//     }
+    }
 
-//     bool Point::operator==(const Point &x, const Point &y)
-//     {
+    bool Point::operator==(const Point &x, const Point &y)
+    {
         
-//     }
-//     bool Point::operator!=(const Point &x, const Point &y)
-//     {
+    }
+    bool Point::operator!=(const Point &x, const Point &y)
+    {
         
-//     }
+    }
 
-//     bool Point::operator<(const Point &x, const Point &y)
-//     {
+    bool Point::operator<(const Point &x, const Point &y)
+    {
         
-//     }
-//     bool Point::operator>(const Point &x, const Point &y)
-//     {
+    }
+    bool Point::operator>(const Point &x, const Point &y)
+    {
         
-//     }
-//     bool Point::operator<=(const Point &x, const Point &y)
-//     {
+    }
+    bool Point::operator<=(const Point &x, const Point &y)
+    {
         
-//     }
-//     bool Point::operator>=(const Point &x, const Point &y)
-//     {
+    }
+    bool Point::operator>=(const Point &x, const Point &y)
+    {
         
-//     }
+    }
 
     std::ostream &operator<<(std::ostream &screen, const Point &__Point)
     {
@@ -180,11 +182,11 @@ using namespace Clustering;
         screen << __Point.getValue(i) << "|";
         screen << endl;
     }
-    // std::istream &operator>>(std::istream &x, Point &y)
-    // {
+    std::istream &operator>>(std::istream &x, Point &y)
+    {
         
-    // }
-
+    }
+*/
     
     
     
