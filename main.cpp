@@ -5,7 +5,11 @@
 #include <vector>
 
 #include "ErrorContext.h"
-#include "ClusteringTests.h"
+# include "ErrorContext.cpp"
+# include "Cluster.cpp"
+#include "ClusteringTests.cpp"
+# include "Point.h"
+# include "Point.cpp"
 
 using std::cout;
 using std::endl;
@@ -30,7 +34,7 @@ int main() {
     ErrorContext ec(cout);
 
     // point tests
-    // test_point_smoketest(ec);
+    test_point_smoketest(ec);
     // test_point_id(ec, NumIters);
     // test_point_getsetelem(ec, NumIters);
     // test_point_copying(ec, NumIters);

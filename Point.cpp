@@ -95,42 +95,95 @@ using namespace Clustering;
         delete [] __values;
     }
     
-// Functions
-    /*double Point::distanceTo(const Point& nextPoint) const
-    {
-        if (__dim > nextPoint.getDims())
-        {
-            Point(__dim);
-            
-        }
-    }*/
+// // Functions
+//     double Point::distanceTo(const Point& nextPoint) const
+//     {
+
+//     }
     
-// Overloaded opperators
+// // Overloaded opperators
 
-// Members
-    // Point &operator*=(double); // p *= 6; p.operator*=(6);
-    // Point &operator/=(double);
-    // const Point operator*(double) const; // prevent (p1 * 2) = p2;
-    // const Point operator/(double) const; // p3 = p2 / 2;
+// // Members
+//     Point &operator*=(double x) // p *= 6; p.operator*=(6);
+//     {
+        
+//     }
+//     Point &operator/=(double x)
+//     {
+        
+//     }
+//     const Point Point::operator*(double x) const // prevent (p1 * 2) = p2;
+//     {
+        
+//     }
+//     const Point Point::operator/(double x) const // p3 = p2 / 2;
+//     {
+        
+//     }
 
-    // double &operator[](int index);
+//     double &operator[](int index)
+//     {
+        
+//     }
 
-// Friends
-    // friend Point &operator+=(Point &, const Point &);
-    // friend Point &operator-=(Point &, const Point &);
-    // friend const Point operator+(const Point &, const Point &);
-    // friend const Point operator-(const Point &, const Point &);
+// // Friends
+//     Point &operator+=(Point & x, const Point & y)
+//     {
+        
+//     }
+//     Point &operator-=(Point & x, const Point & y)
+//     {
+        
+//     }
+//     const Point Point::operator+(const Point & x, const Point &y)
+//     {
+        
+//     }
+//     const Point Point::operator-(const Point &x, const Point &y)
+//     {
+        
+//     }
 
-    // friend bool operator==(const Point &, const Point &);
-    // friend bool operator!=(const Point &, const Point &);
+//     bool Point::operator==(const Point &x, const Point &y)
+//     {
+        
+//     }
+//     bool Point::operator!=(const Point &x, const Point &y)
+//     {
+        
+//     }
 
-    // friend bool operator<(const Point &, const Point &);
-    // friend bool operator>(const Point &, const Point &);
-    // friend bool operator<=(const Point &, const Point &);
-    // friend bool operator>=(const Point &, const Point &);
+//     bool Point::operator<(const Point &x, const Point &y)
+//     {
+        
+//     }
+//     bool Point::operator>(const Point &x, const Point &y)
+//     {
+        
+//     }
+//     bool Point::operator<=(const Point &x, const Point &y)
+//     {
+        
+//     }
+//     bool Point::operator>=(const Point &x, const Point &y)
+//     {
+        
+//     }
 
-    // friend std::ostream &operator<<(std::ostream &, const Point &);
-    // friend std::istream &operator>>(std::istream &, Point &);
+    std::ostream &operator<<(std::ostream &screen, const Point &__Point)
+    {
+        screen << "Point getting value from:" << endl;
+        screen << "\tID: " << __Point.getId() << endl;
+        screen << "\tDimentions: " << __Point.getDims() << endl;
+        screen << "\tValues: |";
+        for (int i = 0; i < __Point.getDims(); i++)
+        screen << __Point.getValue(i) << "|";
+        screen << endl;
+    }
+    // std::istream &operator>>(std::istream &x, Point &y)
+    // {
+        
+    // }
 
     
     
