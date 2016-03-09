@@ -34,41 +34,24 @@ using namespace Clustering;
     Point &Point::operator=(const Point &rPoint)
     {
         int i = 0;
-        
-        if (this != &rPoint && this->getDims() == rPoint.getDims())
+        if (this != &rPoint)
         {
-            for (i = 0; i < this->getDims(); i++)
-            this->setValue(i,rPoint.getValue(i));
-            return *this;
-        }
-        else if (this != &rPoint && this->getDims() < rPoint.getDims())
-        {
-            cout << endl << "------------------------" << endl;
-            cout << "ERROR! unable to assign due to demention missmatch" << endl;
-            cout << "Point trying to copy assign:" << endl;
-                cout << "\tID: " << this->getId() << endl;
-                cout << "\tDimentions: " << this->getDims() << endl;
-                cout << "\tValues: |";
-                for (int i = 0; i < this->getDims(); i++)
-                cout << this->getValue(i) << "|";
-                cout << endl;
-            cout << "Point getting value from:" << endl;
-                cout << "\tID: " << rPoint.getId() << endl;
-                cout << "\tDimentions: " << rPoint.getDims() << endl;
-                cout << "\tValues: |";
-                for (int i = 0; i < rPoint.getDims(); i++)
-                cout << rPoint.getValue(i) << "|";
-                cout << endl;
-            cout << "------------------------" << endl;
-        return *this;
-        }
-        else
-        {
-            for (i = 0; i < rPoint.getDims(); i++)
-            this->setValue(i,rPoint.getValue(i));
-            for (;i < rPoint.getDims(); i++)
-            this->setValue(i,0);
-            return *this;
+            if (this->getDims() == rPoint.getDims())
+            {
+                this->__id = rPoint.getId();
+                this->__dim = rPoint.getDims();
+                for (int i = 0; i  < this->getDims(); ++i)
+                    this->setValue(i,rPoint.getValue(i));
+            }
+            else
+            {
+                delete [] this->__values;
+                this->__id = rPoint.getId();
+                this->__dim = rPoint.getDims();
+                __values = new double[this->__dim];
+                for (int i = 0; i  < this->getDims(); ++i)
+                    this->setValue(i,rPoint.getValue(i));
+            }
         }
     }
 
@@ -95,16 +78,69 @@ using namespace Clustering;
         return __values[num];
     }
 
-/*
+
 
 // Functions
     double Point::distanceTo(const Point& nextPoint) const
     {
-
+        double sum;
+        
+        if (this->getDims() == nextPoint.getDims())
+        {
+            double difference[nextPoint.getDims()];
+            
+            for (int i = 0; i < nextPoint.getDims(); i++)
+            difference[i] = this->getValue(i) - nextPoint.getValue(i);  
+        
+            for (int i = 0; i < nextPoint.getDims(); i++)
+            difference[i] = pow(difference[i],2);
+        
+            for (int i = 0; i < nextPoint.getDims(); i++)
+            sum += difference[i];
+        }
+        
+        else if (this->getDims() > nextPoint.getDims())
+        {
+            int counter = 0;
+            double difference[this->getDims()];
+            
+            for (; counter < nextPoint.getDims(); counter++)
+                difference[counter] = this->getValue(counter) - nextPoint.getValue(counter);
+                
+            for (; counter < this->getDims(); counter ++)
+                difference[counter] = this->getValue(counter);
+        
+            for (int i = 0; i <this->getDims(); i++)
+            difference[i] = pow(difference[i],2);
+        
+            for (int i = 0; i < this->getDims(); i++)
+            sum += difference[i];
+        }
+        
+        else
+        {
+            int counter = 0;
+            double difference[nextPoint.getDims()];
+            
+            for (; counter < this->getDims(); counter++)
+                difference[counter] = this->getValue(counter) - nextPoint.getValue(counter);
+                
+            for (; counter < nextPoint.getDims(); counter ++)
+                difference[counter] = nextPoint.getValue(counter);
+        
+            for (int i = 0; i <nextPoint.getDims(); i++)
+            difference[i] = pow(difference[i],2);
+        
+            for (int i = 0; i < nextPoint.getDims(); i++)
+            sum += difference[i];
+        }
+        
+        return sqrt(sum);
     }
     
 // Overloaded opperators
 
+/*
 // Members
     Point &operator*=(double x) // p *= 6; p.operator*=(6);
     {
