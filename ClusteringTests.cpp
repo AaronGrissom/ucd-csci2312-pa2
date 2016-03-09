@@ -122,7 +122,7 @@ void test_point_id(ErrorContext &ec, unsigned int numRuns) {
     }
 }
 
-/*
+
 // setValue, getValue, operator[]
 void test_point_getsetelem(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
@@ -278,7 +278,7 @@ void test_point_assignment(ErrorContext &ec, unsigned int numRuns) {
         }
     }
 }
-
+/*
 // operator==, operator!=
 void test_point_equality(ErrorContext &ec, unsigned int numRuns) {
     bool pass;
