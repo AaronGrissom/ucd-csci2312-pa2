@@ -38,7 +38,6 @@ using namespace Clustering;
         {
             if (this->getDims() == rPoint.getDims())
             {
-                this->__id = rPoint.getId();
                 this->__dim = rPoint.getDims();
                 for (int i = 0; i  < this->getDims(); ++i)
                     this->setValue(i,rPoint.getValue(i));
@@ -46,7 +45,6 @@ using namespace Clustering;
             else
             {
                 delete [] this->__values;
-                this->__id = rPoint.getId();
                 this->__dim = rPoint.getDims();
                 __values = new double[this->__dim];
                 for (int i = 0; i  < this->getDims(); ++i)
@@ -140,30 +138,41 @@ using namespace Clustering;
     
 // Overloaded opperators
 
-/*
+
+
 // Members
-    Point &operator*=(double x) // p *= 6; p.operator*=(6);
+    Point &Point::operator*=(double multiplier) // p *= 6; p.operator*=(6);
     {
-        
+         for (int i = 0; i < this->getDims(); i++)
+             setValue(i,this->getValue(i) * multiplier);
     }
-    Point &operator/=(double x)
+    
+    Point &Point::operator/=(double divider)
     {
-        
-    }
-    const Point Point::operator*(double x) const // prevent (p1 * 2) = p2;
-    {
-        
-    }
-    const Point Point::operator/(double x) const // p3 = p2 / 2;
-    {
-        
+        for (int i = 0; i < this->getDims(); i++)
+             setValue(i,this->getValue(i) / divider);
     }
 
-    double &operator[](int index)
+    const Point Point::operator*(double multiplier) const // prevent (p1 * 2) = p2;
     {
-        
+        Point temp(this->getDims());
+        temp = *this;
+        temp *= multiplier;
+        return temp;
     }
-
+    const Point Point::operator/(double divider) const // p3 = p2 / 2;
+    {
+        Point temp(this->getDims());
+        temp = *this;
+        temp /= divider;
+        return temp;
+    }
+    double &Point::operator[](int index)
+    {
+        Point mVector(1);
+        return mVector[index];
+    }
+/*
 // Friends
     Point &operator+=(Point & x, const Point & y)
     {
